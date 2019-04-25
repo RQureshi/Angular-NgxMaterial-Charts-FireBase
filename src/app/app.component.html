@@ -1,0 +1,33 @@
+
+<mat-form-field>
+  <mat-select [(value)]="survey.country">
+    <mat-option value="India">India</mat-option>
+    <mat-option value="USA">USA</mat-option>
+    <mat-option value="Germany">Germany</mat-option>
+    <mat-option value="Brazil">Brazil</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field>
+  <mat-select [(value)]="survey.gender">
+    <mat-option value="Male">Male</mat-option>
+    <mat-option value="Female">Female</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-radio-group [(ngModel)]="survey.rating" name="rating">
+  <mat-radio-button value="5">5</mat-radio-button>
+  <mat-radio-button value="4">4</mat-radio-button>
+  <mat-radio-button value="3">3</mat-radio-button>
+  <mat-radio-button value="2">2</mat-radio-button>
+  <mat-radio-button value="1">1</mat-radio-button>
+</mat-radio-group>
+<button mat-raised-button color="primary" (click)="saveEntry()">Save</button>
+<ngx-charts-pie-chart *ngIf = "chartdata"
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="countryData"
+      [legend]="showLegend"
+      [explodeSlices]="explodeSlices"
+      [labels]="showLabels"
+      [doughnut]="doughnut"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-chart>
